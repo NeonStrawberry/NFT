@@ -1,3 +1,8 @@
+/* 
+Coloured version of NFT
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
