@@ -9,6 +9,8 @@ NFT was created by myself, originally just for my own use, but I decided to rele
 
 Support for custom fractals will come eventually.
 
+This tool ony works on GNU/Linux. If you're a Windows programmer, feel free to port it to Windows, as long as you credit me.
+
 # About the source code
 You may have noticed that the entire source for NFT is one large file. This is because I do not like all the interesting problems that come whenever I split a project into multiple files.
 
