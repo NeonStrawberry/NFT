@@ -17,19 +17,19 @@ char *buffer;
 int colour;
 
 void iter() {
-	if (type == 0) {
+	if (type == 0) { /* Mandelbrot */
 		tmp[0] = z[0] * z[0] - z[1] * z[1] + c[0];
 		tmp[1] = 2 * z[0] * z[1] + c[1];
 		
 		z[0] = tmp[0];
 		z[1] = tmp[1];
-	} else if (type == 2) {
+	} else if (type == 2) { /* Mandelberry */
 		tmp[0] = z[0] * z[0] - z[1] * z[1] + c[0];
 		tmp[1] = 1.2 * z[0] * z[1] + c[1];
 		
 		z[0] = tmp[0];
 		z[1] = tmp[1];
-	} else if (type == 1) {
+	} else if (type == 1) { /* Burning ship */
 		tmp[0] = fabs(z[0]) * fabs(z[0]) - fabs(z[1]) * fabs(z[1]) + c[0];
 		tmp[1] = 2 * fabs(z[0]) * fabs(z[1]) + c[1];
 		
@@ -38,7 +38,7 @@ void iter() {
 	}
 }
 
-double dst() {
+double dst() { /* returns the length of Z */
 	return (z[0] * z[0]) + (z[1] * z[1]);
 }
 
@@ -53,8 +53,6 @@ void render() {
 }
 
 int main() {
-	char signature[] = "Made by NeonStrawberry";
-	
 	printf("Neon's Fractal Tool v1.3\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
@@ -78,7 +76,7 @@ int main() {
 			z[0] = 0;
 			z[1] = 0;
 		
-			if (j < res / 2)
+			if (j < res / 2) /* Don't even try to make sense of this mess */
 				c[0] = (double) ((double) j - res / 2) / ((res / 4) * magnification) + focus[0];
 			else
 				c[0] = (double) ((double) j - (res / 2 - 1)) / ((res / 4) * magnification) + focus[0];
@@ -90,20 +88,20 @@ int main() {
 				
 			k = 0;
 			
-			while ((dst() <= 4) && (k < iter_c + 2)) {
+			while ((dst() <= 4) && (k < iter_c + 2)) { /* Iterate the function iter() */
 				k++;
 				iter();
 			}
 			
-			if (k == iter_c + 2)
+			if (k == iter_c + 2) /* If this point is part of the set */
 				buffer[(i * (int) res + j) * 2] = '#';
-			else if (colour != 0) {	
+			else if (colour != 0) {	/* Colouring (just various shades of grey) */
 				switch (k % 3) {
 					case 0: buffer[(i * (int) res + j) * 2] = '_'; break;
 					case 1: buffer[(i * (int) res + j) * 2] = '='; break;
 					case 2: buffer[(i * (int) res + j) * 2] = '`'; break;
 				}
-			} else {
+			} else { /* This part is useless, but I'm afraid to remove it */
 				buffer[(i * (int) res + j) * 2] = ' ';
 			}
 			
@@ -112,7 +110,6 @@ int main() {
 	}
 	render();
 	
-	free(buffer);
+	free(buffer); /* Remember to free memory */
 	exit(0);
 }
-//ghjfghfghjfdg
