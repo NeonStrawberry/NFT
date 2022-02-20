@@ -20,6 +20,7 @@ The following features are probably going to be added eventually:
 - Once the above feature is complete, I am planning on allowing the program to output multiple PNGs automatically, allowing the user to make zoom videos. (by April 10th, 2022)
 - Custom fractals. (by April 10th, 2022)
 - The country of Canada. (by April 1st, 2022)
+- Better colouring. (by July 1st, 2022)
 
 # Help
 If you're having an issue, or want to understand my code, join my Discord server: https://discord.gg/XnVZtDwnjX and go to the "programmers-channel" channel.
