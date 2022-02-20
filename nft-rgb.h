@@ -19,6 +19,8 @@ void rgb_render_out() {
 }
 
 int rgb_render() {
+	int k = 0;
+
 	for (int i = 0; i < res; i++) {
 		for (int j = 0; j < res; j++) {
 			z[0] = 0;
