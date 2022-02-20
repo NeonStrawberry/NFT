@@ -1,4 +1,4 @@
-void rgb_render() {
+void rgb_render_out() {
 	for (int i = 0; i < res * res; i++) {
 		switch (buffer[i * 2]) {
 			case '_': printf("\x1B[35m"); break;
@@ -18,25 +18,7 @@ void rgb_render() {
 	}
 }
 
-int rgb() {
-	printf("Neon's Fractal Tool v1.5\n\n");
-	printf("What resolution would you like? ");
-	scanf("%lf", &res);
-	printf("How many iterations would you like? ");
-	scanf("%d", &iter_c);
-	printf("How deep would you like to zoom? ");
-	scanf("%lf", &magnification);
-	printf("Where would you like to zoom? \n");
-	scanf("%lf", &focus[0]);
-	scanf("%lf", &focus[1]);
-	printf("Which fractal?\n\t[0] Mandelbrot\n\t[1] Burning Ship\n\t[2] Mandelberry\n");
-	scanf("%d", &type);
-	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n");
-	scanf("%d", &colour);
-
-	int k = 0;
-	buffer = (char *) malloc(res * res * 2 + res);
-
+int rgb_render() {
 	for (int i = 0; i < res; i++) {
 		for (int j = 0; j < res; j++) {
 			z[0] = 0;
@@ -77,8 +59,7 @@ int rgb() {
 			buffer[(i * (int) res + j) * 2 + 1] = buffer[(i * (int) res + j) * 2];
 		}
 	}
-	render();
+	rgb_render_out();
 	
-	free(buffer); /* Remember to free memory */
-	exit(0);
+	free(buffer);
 }
