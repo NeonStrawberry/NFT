@@ -4,8 +4,6 @@
 #include <math.h>
 #include <stdbool.h>
 
-#include "nft-rgb.h"
-
 double res;
 int iter_c;
 int type;
@@ -17,6 +15,11 @@ double focus[] = {0, 0};
 double magnification = 1;
 char *buffer;
 int colour;
+
+void iter();
+double dst();
+
+#include "nft-rgb.h"
 
 void iter() {
 	if (type == 0) { /* Mandelbrot */
