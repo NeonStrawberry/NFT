@@ -4,6 +4,8 @@
 #include <math.h>
 #include <stdbool.h>
 
+#include "nft-rgb.h"
+
 double res;
 int iter_c;
 int type;
@@ -53,7 +55,7 @@ void render() {
 }
 
 int main() {
-	printf("Neon's Fractal Tool v1.5\n\n");
+	printf("Neon's Fractal Tool v1.5.1\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
 	printf("How many iterations would you like? ");
@@ -65,12 +67,16 @@ int main() {
 	scanf("%lf", &focus[1]);
 	printf("Which fractal?\n\t[0] Mandelbrot\n\t[1] Burning Ship\n\t[2] Mandelberry\n");
 	scanf("%d", &type);
-	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n");
+	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n\t[2] DO NOT CHOOSE THIS OPTION\n");
 	scanf("%d", &colour);
 
 	int k = 0;
 	buffer = (char *) malloc(res * res * 2 + res);
-
+	if (colour == 2) {
+		rgb_render();
+		exit(0);
+	}
+	
 	for (int i = 0; i < res; i++) {
 		for (int j = 0; j < res; j++) {
 			z[0] = 0;
