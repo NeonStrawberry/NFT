@@ -70,7 +70,7 @@ int main() {
 	scanf("%lf", &focus[1]);
 	printf("Which fractal?\n\t[0] Mandelbrot\n\t[1] Burning Ship\n\t[2] Mandelberry\n");
 	scanf("%d", &type);
-	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n\t[2] DO NOT CHOOSE THIS OPTION\n");
+	printf("Would you like colouring?\n\t[0] No\n\t[1] Greyscale\n\t[2] Actual colour\n");
 	scanf("%d", &colour);
 
 	int k = 0;
