@@ -1,53 +1,4 @@
-/* 
-Coloured version of NFT
-*/
-
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <math.h>
-#include <stdbool.h>
-
-double res;
-int iter_c;
-int type;
-
-double c[2];
-double z[2];
-double tmp[2];
-double focus[] = {0, 0};
-double magnification = 1;
-char *buffer;
-int colour;
-
-void iter() {
-	if (type == 0) { /* Mandelbrot */
-		tmp[0] = z[0] * z[0] - z[1] * z[1] + c[0];
-		tmp[1] = 2 * z[0] * z[1] + c[1];
-		
-		z[0] = tmp[0];
-		z[1] = tmp[1];
-	} else if (type == 2) { /* Mandelberry */
-		tmp[0] = z[0] * z[0] - z[1] * z[1] + c[0];
-		tmp[1] = 1.2 * z[0] * z[1] + c[1];
-		
-		z[0] = tmp[0];
-		z[1] = tmp[1];
-	} else if (type == 1) { /* Burning ship */
-		tmp[0] = fabs(z[0]) * fabs(z[0]) - fabs(z[1]) * fabs(z[1]) + c[0];
-		tmp[1] = 2 * fabs(z[0]) * fabs(z[1]) + c[1];
-		
-		z[0] = tmp[0];
-		z[1] = tmp[1];
-	}
-}
-
-double dst() { /* returns the length of Z */
-	return (z[0] * z[0]) + (z[1] * z[1]);
-}
-
-void render() {
+void rgb_render() {
 	for (int i = 0; i < res * res; i++) {
 		switch (buffer[i * 2]) {
 			case '_': printf("\x1B[35m"); break;
@@ -67,7 +18,7 @@ void render() {
 	}
 }
 
-int main() {
+int rgb() {
 	printf("Neon's Fractal Tool v1.5\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
