@@ -55,7 +55,7 @@ void render() {
 }
 
 int main() {
-	printf("Neon's Fractal Tool v1.5\n\n");
+	printf("Neon's Fractal Tool v1.6\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
 	printf("How many iterations would you like? ");
