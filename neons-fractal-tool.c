@@ -43,12 +43,32 @@ double dst() { /* returns the length of Z */
 }
 
 void render() {
-	for (int i = 0; i < res * res; i++) {
-		printf("%c", buffer[i * 2]);
-		printf("%c", buffer[i * 2 + 1]);
+	if (colour == 2) {
+		for (int i = 0; i < res * res; i++) {
+		switch (buffer[i * 2]) {
+			case '_': printf("\x1B[35m"); break;
+			case '=': printf("\x1B[31m"); break;
+			case '`': printf("\x1B[33m"); break;
+			case '~': printf("\x1B[32m"); break;
+			case ']': printf("\x1B[36m"); break;
+			case '[': printf("\x1B[34m"); break;
+		}
+		
+		printf("##");
+		
+		printf("\x1B[0m");
 		
 		if ((i % (int) res == 0) && (i != 0))
 			printf("\n");
+		}
+	} else {
+		for (int i = 0; i < res * res; i++) {
+			printf("%c", buffer[i * 2]);
+			printf("%c", buffer[i * 2 + 1]);
+
+			if ((i % (int) res == 0) && (i != 0))
+				printf("\n");
+		}
 	}
 }
 
@@ -65,7 +85,7 @@ int main() {
 	scanf("%lf", &focus[1]);
 	printf("Which fractal?\n\t[0] Mandelbrot\n\t[1] Burning Ship\n\t[2] Mandelberry\n");
 	scanf("%d", &type);
-	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n");
+	printf("Would you like colouring?\n\t[0] No\n\t[1] 4-colour\n\t[2] 7-colour\n");
 	scanf("%d", &colour);
 
 	int k = 0;
@@ -95,14 +115,16 @@ int main() {
 			
 			if (k == iter_c + 2) /* If this point is part of the set */
 				buffer[(i * (int) res + j) * 2] = '#';
-			else if (colour != 0) {	/* Colouring (just various shades of grey) */
+			else if (colour == 1) {	/* Colouring (just various shades of grey) */
 				switch (k % 3) {
 					case 0: buffer[(i * (int) res + j) * 2] = '_'; break;
 					case 1: buffer[(i * (int) res + j) * 2] = '='; break;
 					case 2: buffer[(i * (int) res + j) * 2] = '`'; break;
 				}
-			} else { /* This part is useless, but I'm afraid to remove it */
+			} else if (colour == 0) { /* This part is useless, but I'm afraid to remove it */
 				buffer[(i * (int) res + j) * 2] = ' ';
+			} else {
+			
 			}
 			
 			buffer[(i * (int) res + j) * 2 + 1] = buffer[(i * (int) res + j) * 2];
