@@ -14,7 +14,7 @@ This tool ony works on GNU/Linux. If you're a programmer on Windows, feel free t
 # About the source code
 You may have noticed that the entire source for each flavour of NFT is one large file. This is because I do not like all the interesting problems that come whenever I split a project into multiple files.
 
-`nft-rgb.c` must be compiled separately from `neons-fractal-tool.c`.
+`nft-rgb.c` must be compiled separately from `neons-fractal-tool.c`, as they are separate programs.
 
 # To-do list and future features
 The following features are probably going to be added eventually:
