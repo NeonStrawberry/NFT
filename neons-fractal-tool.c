@@ -43,19 +43,17 @@ double dst() { /* returns the length of Z */
 }
 
 void render() {
-	else {
-		for (int i = 0; i < res * res; i++) {
-			printf("%c", buffer[i * 2]);
-			printf("%c", buffer[i * 2 + 1]);
-
-			if ((i % (int) res == 0) && (i != 0))
-				printf("\n");
-		}
+	for (int i = 0; i < res * res; i++) {
+		printf("%c", buffer[i * 2]);
+		printf("%c", buffer[i * 2 + 1]);
+		
+		if ((i % (int) res == 0) && (i != 0))
+			printf("\n");
 	}
 }
 
 int main() {
-	printf("Neon's Fractal Tool v1.6\n\n");
+	printf("Neon's Fractal Tool v1.5\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
 	printf("How many iterations would you like? ");
@@ -67,7 +65,7 @@ int main() {
 	scanf("%lf", &focus[1]);
 	printf("Which fractal?\n\t[0] Mandelbrot\n\t[1] Burning Ship\n\t[2] Mandelberry\n");
 	scanf("%d", &type);
-	printf("Would you like colouring?\n\t[0] No\n\t[1] 4-colour\n");
+	printf("Would you like colouring?\n\t[0] No\n\t[1] Yes\n");
 	scanf("%d", &colour);
 
 	int k = 0;
@@ -97,37 +95,18 @@ int main() {
 			
 			if (k == iter_c + 2) /* If this point is part of the set */
 				buffer[(i * (int) res + j) * 2] = '#';
-			else if (colour == 1) {	/* Colouring (just various shades of grey) */
+			else if (colour != 0) {	/* Colouring (just various shades of grey) */
 				switch (k % 3) {
 					case 0: buffer[(i * (int) res + j) * 2] = '_'; break;
 					case 1: buffer[(i * (int) res + j) * 2] = '='; break;
 					case 2: buffer[(i * (int) res + j) * 2] = '`'; break;
 				}
-			} else if (colour == 0) { /* This part is useless, but I'm afraid to remove it */
+			} else { /* This part is useless, but I'm afraid to remove it */
 				buffer[(i * (int) res + j) * 2] = ' ';
 			}
 			
 			buffer[(i * (int) res + j) * 2 + 1] = buffer[(i * (int) res + j) * 2];
 		}
-	} else {
-		printf("\x1B[31m"
-		       "###################                                   ###################\n"
-		       "###################                  #                ###################\n"
-		       "###################              ## ### ##            ###################\n"
-		       "###################              #########            ###################\n"
-		       "###################               #######             ###################\n"
-		       "###################          # #  #######  # #        ###################\n"
-		       "###################        # ####  #####  #### #      ###################\n"
-		       "###################         ###### ##### ######       ###################\n"
-		       "###################          #################        ###################\n"
-		       "###################           ###############         ###################\n"
-		       "###################            #############          ###################\n"
-		       "###################             #   ###   #           ###################\n"
-		       "###################                 ###               ###################\n"
-		       "###################                 ###               ###################\n"
-		       "###################                 ###               ###################\n"
-		       "###################                                   ###################\n"
-		       "C A N A D A\x1B[0m                                                              \n");
 	}
 	render();
 	
