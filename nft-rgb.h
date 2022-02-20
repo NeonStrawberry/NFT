@@ -43,7 +43,7 @@ int rgb_render() {
 			
 			if (k == iter_c + 2) /* If this point is part of the set */
 				buffer[(i * (int) res + j) * 2] = '#';
-			else if (colour != 0) {	/* Colouring (just various shades of grey) */
+			else {	/* Colouring */
 				switch (k % 6) {
 					case 0: buffer[(i * (int) res + j) * 2] = '_'; break;
 					case 1: buffer[(i * (int) res + j) * 2] = '='; break;
@@ -52,8 +52,6 @@ int rgb_render() {
 					case 4: buffer[(i * (int) res + j) * 2] = ']'; break;
 					case 5: buffer[(i * (int) res + j) * 2] = '['; break;
 				}
-			} else { /* This part is useless, but I'm afraid to remove it */
-				buffer[(i * (int) res + j) * 2] = ' ';
 			}
 			
 			buffer[(i * (int) res + j) * 2 + 1] = buffer[(i * (int) res + j) * 2];
