@@ -9,9 +9,6 @@ NFT was created by myself, originally just for my own use, but I decided to rele
 
 Support for custom fractals will come eventually.
 
-# About the source code
-`nft-rgb.c` must be compiled separately from `neons-fractal-tool.c`, as they are separate programs.
-
 # To-do list and future features
 The following features are probably going to be added eventually:
 - Outputting PNG files. (by March 25th, 2022)
