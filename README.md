@@ -18,6 +18,7 @@ The following features are probably going to be added eventually:
 - Better colouring. (by July 1st, 2022)
 
 # Planned versions
+- v1.5.2 - see [future/v1.5.2.md](https://github.com/NeonStrawberry/NFT/blob/main/future/v1.5.2.md)
 - v1.6 - see [future/v1.6.md](https://github.com/NeonStrawberry/NFT/blob/main/future/v1.6.md)
 
 # Help
