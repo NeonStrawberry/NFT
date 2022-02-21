@@ -58,7 +58,8 @@ void render() {
 }
 
 int main() {
-	printf("Neon's Fractal Tool v1.5.1\n\n");
+	printf("\x1B[30m\x1B[47mNeon's Fractal Tool v1.5.2\x1B[0m\n"
+	       "\x1B[1mhttps://github.com/NeonStrawberry/NFT\x1B[0m\n\n");
 	printf("What resolution would you like? ");
 	scanf("%lf", &res);
 	printf("How many iterations would you like? ");
