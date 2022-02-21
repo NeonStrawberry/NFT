@@ -9,8 +9,6 @@ NFT was created by myself, originally just for my own use, but I decided to rele
 
 Support for custom fractals will come eventually.
 
-This tool ony works on GNU/Linux. If you're a programmer on Windows, feel free to port it to Windows, as long as you credit me.
-
 # About the source code
 `nft-rgb.c` must be compiled separately from `neons-fractal-tool.c`, as they are separate programs.
 
