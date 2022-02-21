@@ -76,6 +76,11 @@ int main() {
 
 	int k = 0;
 	buffer = (char *) malloc(res * res * 2 + res);
+	if (buffer == NULL) {
+		printf("Failed to allocate memory");
+		exit(-1);
+	}
+	
 	if (colour == 2) {
 		rgb_render();
 		exit(0);
