@@ -21,4 +21,4 @@ The following features are probably going to be added eventually:
 - v1.6 - see [future/v1.6.md](https://github.com/NeonStrawberry/NFT/blob/main/future/v1.6.md)
 
 # Help
-If you're having an issue, or want to understand my code, join my Discord server: https://discord.gg/XnVZtDwnjX and go to the "programmers-channel" channel.
+If you're having an issue, join my Discord server: https://discord.gg/XnVZtDwnjX and go to the "programmers-channel" channel.
